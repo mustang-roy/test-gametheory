@@ -2,13 +2,15 @@ class Player:
 
     __decision: bool
     __person: str
+    __person_number: int
     __coins: int
     __limit_winstreak: int
     __limit_losestreak: int
 
-    def __init__(self, decision, person, limit_winstreak, limit_losestreak):
+    def __init__(self, decision, person_num, limit_winstreak, limit_losestreak):
         self.__decision = decision
-        self.__person = person
+        self.__person_number = person_num
+        self.__person = ['fool', 'bad', 'raging', 'pardoner', 'swindler']
         self.__limit_losestreak = limit_losestreak
         self.__limit_winstreak = limit_winstreak
         self.__coins = 1000

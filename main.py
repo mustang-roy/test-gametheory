@@ -1,11 +1,11 @@
 from include.players import Player
 from include.game import Game
 
-bad_player = Player(False, 'bad', 100000, 0)
-fool_player = Player(True, 'fool', 100000, 100000)
-raging_player = Player(True, 'raging', 100000, 10000)
-pardoner_player = Player(True, 'pardon', 100000, 100000)
-swindler_player = Player(True, 'swindler', 100000, 100000)
+bad_player = Player(False,1, 100000, 0)
+fool_player = Player(True,0, 100000, 100000)
+raging_player = Player(True,2, 100000, 10000)
+pardoner_player = Player(True,3, 100000, 100000)
+swindler_player = Player(True,4 , 100000, 100000)
 
 game1 = Game(fool_player, fool_player)
 
