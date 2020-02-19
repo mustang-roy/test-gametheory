@@ -10,6 +10,16 @@ O player é uma classe responsável por categorizar e definir o comportamento de
 
 O Game é o módulo onde estão definidas as regras e consequência de cada ato para cada um dos players
 
+## Regras
+
+Os tipos de players são:
+
+    * Fool: Sempre aposta
+    * Bad: Nunca aposta
+    * Raging: Aposta até perder pela primeira vez e nunca mais aposta 
+    * Pardoner: Aposta até perder pela primeira vez contudo volta a apostar após uma nova vitória
+    * Swindler: Aposta até win streak de 2 do oponente então para de apostar e só retorna após lose streak de 2. 
+
 
 ## Execução
 
