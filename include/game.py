@@ -32,7 +32,22 @@ class Game:
     def player_2_coin(self):
         return self.__player2.coins
 
-    #def verify_decision(self):
+    @property
+    def player_1_winstreak(self):
+        return self.__winstreak_p1
+
+    @property
+    def player_2_winstreak(self):
+        return self.__winstreak_p2
+
+    @property
+    def player_1_losestreak(self):
+        return self.__losestreak_p1    
+
+    @property
+    def player_2_losestreak(self):
+        return self.__losestreak_p2    
+
 
     def remove_coin_p1(self, n_coins):
         self.__player1.remove_coins(n_coins)
@@ -65,17 +80,35 @@ class Game:
     def result_step (self, bet_player1, bet_player2):
         if (bet_player1 == True and bet_player2 == True):
             self.add_coin_p1(2)
+            self.__winstreak_p1 += 1
+            self.__losestreak_p1 = 0
             self.add_coin_p2(2)
+            self.__winstreak_p2 += 1
+            self.__losestreak_p2 = 0
 
         if (bet_player1 == True and bet_player2 == False):
             self.add_coin_p2(3)
+            self.__winstreak_p2 +=1
+            self.__losestreak_p2 = 0
+            self.__losestreak_p1 += 1
 
         if (bet_player2 == True and bet_player1 == False):
             self.add_coin_p1(3)
+            self.__winstreak_p1 +=1
+            self.__losestreak_p1 = 0
+            self.__losestreak_p2 += 1
 
         if (bet_player2 == False and bet_player1 == False):
             self.remove_coin_p1(2)
+            self.__winstreak_p1 = 0
+            self.__losestreak_p1 += 1
             self.remove_coin_p2(2)
+            self.__winstreak_p2 = 0
+            self.__losestreak_p2 += 1
+    
+    def verify_decision(self):
+        self.__player1.set_decision(self.__winstreak_p1, self.__losestreak_p1)
+        self.__player2.set_decision(self.__winstreak_p2, self.__losestreak_p2)
 
     def play_game(self):
 
@@ -89,4 +122,8 @@ class Game:
 
             self.bet_step()
             self.result_step(bet_player1, bet_player2)
+            self.verify_decision()
+
+
+
             

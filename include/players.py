@@ -16,12 +16,16 @@ class Player:
         self.__coins = 1000
 
     @property
+    def person_number():
+        return self.__person_number
+
+    @property
     def decision(self):
         return self.__decision
     
     @property
     def person(self):
-        return self.__person
+        return self.__person[self.__person_number]
     
     @property
     def coins(self):
@@ -29,11 +33,13 @@ class Player:
 
     def set_decision(self, winstreak, losestreak):
         
-        if (self.__limit_winstreak < winstreak and self.__limit_losestreak > losestreak):
+        if (self.__limit_winstreak < winstreak or self.__limit_losestreak < losestreak):
             self.__decision = False
+            print('setando false')
 
         else:
             self.__decision = True
+            print('setando true')
 
 
     def remove_coins(self, coins_2_remove):
