@@ -114,8 +114,8 @@ class Game:
 
         rounds = self.__round
 
-        bet_player1 = True
-        bet_player2 = True
+        bet_player1:bool = self.__player1.decision
+        bet_player2:bool = self.__player2.decision
 
 
         for r in range(rounds):
